@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const partners = ["Stellar", "Soroban", "SEP-24", "Anchors"];
 
 const heroStats = [
@@ -115,11 +117,14 @@ export default function Home() {
             </div>
 
             <div className="creator-stage">
-              <div className="creator-portrait" aria-hidden="true">
-                <span className="head" />
-                <span className="body" />
-                <span className="phone-hand" />
-              </div>
+              <Image
+                className="hero-product-image"
+                src="/hero-wallet-phone.jpg"
+                alt="Phone showing a mobile payment interface"
+                fill
+                priority
+                sizes="(max-width: 680px) 100vw, 46vw"
+              />
 
               <div className="mini-chart">
                 <span />

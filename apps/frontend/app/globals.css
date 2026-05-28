@@ -358,9 +358,7 @@ h3 {
 }
 
 .creator-stage {
-  background:
-    radial-gradient(circle at 56% 44%, rgba(216, 255, 40, 0.18), transparent 32%),
-    linear-gradient(135deg, #e8efeb, #f8faf3);
+  background: #e8efeb;
   border-radius: 22px;
   grid-column: span 2;
   min-height: 365px;
@@ -368,58 +366,13 @@ h3 {
   position: relative;
 }
 
-.creator-portrait {
+.hero-product-image {
   height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: 50% 48%;
   position: absolute;
-  right: 8%;
-  top: 0;
-  width: 52%;
-}
-
-.creator-portrait .head {
-  background: radial-gradient(circle at 50% 38%, #35261d 0 30%, #201712 31% 55%, transparent 56%);
-  border-radius: 999px;
-  height: 135px;
-  left: 34%;
-  position: absolute;
-  top: 34px;
-  width: 118px;
-}
-
-.creator-portrait .body {
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.7), transparent 40%),
-    linear-gradient(180deg, #f2eee5, #d7ccb9);
-  border-radius: 90px 90px 0 0;
-  height: 260px;
-  left: 16%;
-  position: absolute;
-  top: 128px;
-  transform: rotate(-3deg);
-  width: 240px;
-}
-
-.creator-portrait .phone-hand {
-  background: #102428;
-  border: 7px solid #0a1417;
-  border-radius: 20px;
-  bottom: 82px;
-  height: 142px;
-  left: 16%;
-  position: absolute;
-  transform: rotate(-16deg);
-  width: 82px;
-}
-
-.creator-portrait .phone-hand::after {
-  background: var(--lime);
-  border-radius: 999px;
-  content: "";
-  height: 20px;
-  left: 23px;
-  position: absolute;
-  top: 56px;
-  width: 20px;
+  width: 100%;
 }
 
 .mini-chart {
@@ -809,11 +762,6 @@ h3 {
   .creator-stage {
     grid-column: auto;
     min-height: 340px;
-  }
-
-  .creator-portrait {
-    right: -10%;
-    width: 78%;
   }
 
   .experience-badge {
