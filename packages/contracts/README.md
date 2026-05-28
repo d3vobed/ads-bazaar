@@ -1,66 +1,32 @@
-## Foundry
+# AdsBazaar Soroban Contracts
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Soroban contract package for AdsBazaar campaign escrow.
 
-Foundry consists of:
+## Commands
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```bash
+cargo fmt --all
+cargo test
+cargo build --target wasm32-unknown-unknown --release
 ```
 
-### Test
+Or from the repository root:
 
-```shell
-$ forge test
+```bash
+pnpm contracts:build
+pnpm contracts:test
 ```
 
-### Format
+## Contract
 
-```shell
-$ forge fmt
-```
+`src/lib.rs` contains the initial `AdsBazaarEscrow` contract scaffold:
 
-### Gas Snapshots
+- campaign creation and escrow funding;
+- creator applications;
+- business selection;
+- proof submission;
+- submission approval;
+- creator payout claims;
+- dispute flagging.
 
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+This package is pre-audit and not ready for mainnet value.

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "forge build",
-    "test": "forge test",
-    "fmt": "forge fmt",
-    "deploy:local": "forge script script/Deploy.s.sol --rpc-url http://localhost:8545 --broadcast"
+    "build": "cargo build --target wasm32-unknown-unknown --release",
+    "test": "cargo test",
+    "fmt": "cargo fmt --all",
+    "deploy:testnet": "stellar contract deploy --wasm target/wasm32-unknown-unknown/release/ads_bazaar_contracts.wasm --network testnet"
   }
 }
