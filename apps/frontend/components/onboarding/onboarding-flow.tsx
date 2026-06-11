@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { StellarWalletButton, type WalletState } from "./stellar-wallet-button";
@@ -265,6 +266,9 @@ function CompleteState({
   onClose: () => void;
   role: Role | null;
 }) {
+  const dashboardHref =
+    role === "business" ? "/dashboard/business" : "/dashboard/creator";
+
   return (
     <ModalBackdrop>
       <div className={`${modalShellClass} max-w-[560px]`}>
@@ -281,13 +285,22 @@ function CompleteState({
               ? "Next, we will connect this profile to campaign creation and escrow funding when the contract flow is ready."
               : "Next, we will connect this profile to campaign discovery, applications, and payout claims."}
           </p>
-          <button
-            className="mt-8 min-h-12 rounded-xl bg-[#2dd4bf] px-7 text-sm font-black text-[#08201d] shadow-[0_14px_40px_rgba(45,212,191,0.24)] transition hover:bg-[#75fff1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2dd4bf]"
-            type="button"
-            onClick={onClose}
-          >
-            Finish
-          </button>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#2dd4bf] px-7 text-sm font-black text-[#08201d] shadow-[0_14px_40px_rgba(45,212,191,0.24)] transition hover:bg-[#75fff1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2dd4bf]"
+              href={dashboardHref}
+              onClick={onClose}
+            >
+              Go to dashboard
+            </Link>
+            <button
+              className="min-h-12 rounded-xl border border-white/16 px-7 text-sm font-black text-white/86 transition hover:bg-white/8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2dd4bf]"
+              type="button"
+              onClick={onClose}
+            >
+              Stay here
+            </button>
+          </div>
         </div>
       </div>
     </ModalBackdrop>
