@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { OnboardingFlow } from "./onboarding-flow";
-import { StellarWalletButton } from "./stellar-wallet-button";
+import { OnboardingFlow } from "@/components/onboarding/onboarding-flow";
+import { StellarWalletButton } from "@/components/onboarding/stellar-wallet-button";
 
 const heroStats = [
   { value: "0.5%", label: "protocol fee" },
