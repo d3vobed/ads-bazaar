@@ -14,6 +14,19 @@
   --line: rgba(255, 255, 255, 0.1);
   --dark-line: rgba(7, 17, 22, 0.1);
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+
+  /* Dashboard Design Tokens */
+  --db-bg: #131313;
+  --db-surface-low: #1c1b1b;
+  --db-surface: #201f1f;
+  --db-surface-high: #2a2a2a;
+  --db-on-surface: #e5e2e1;
+  --db-on-surface-variant: #c5c9ae;
+  --db-primary-container: #c8f232;
+  --db-on-primary: #293500;
+  --db-outline-variant: #444934;
+
+  --font-geist: var(--font-geist-sans);
 }
 
 .creator-dashboard-theme {
@@ -58,6 +71,14 @@
 
   button {
     font: inherit;
+  }
+
+  .font-sora {
+    font-family: var(--font-sora), sans-serif;
+  }
+
+  .font-geist {
+    font-family: var(--font-geist), sans-serif;
   }
 }
 
