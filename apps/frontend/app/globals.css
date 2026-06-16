@@ -16,6 +16,19 @@
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
 }
 
+.creator-dashboard-theme {
+  --dash-bg: #121212;
+  --dash-surface: #1a1a1a;
+  --dash-border: #262626;
+  --dash-heading: #ffffff;
+  --dash-body: #e5e2e1;
+  --dash-muted: #c5c9ae;
+  --dash-accent: #add500;
+  --dash-on-accent: #293500;
+  --dash-accent-strong: #c8f232;
+  --dash-on-accent-strong: #576c00;
+}
+
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--paper);
