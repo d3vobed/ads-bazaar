@@ -44,7 +44,7 @@
   --dash-on-accent-strong: #576c00;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--db-bg);
   --color-surface-container: var(--db-surface);
   --color-surface-container-high: var(--db-surface-high);
