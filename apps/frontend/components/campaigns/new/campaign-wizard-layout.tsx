@@ -33,7 +33,7 @@ export function CampaignWizardLayout({
 
   function handleDiscard() {
     sessionStorage.removeItem("adsbazaar_campaign_draft");
-    router.push("/dashboard/campaigns");
+    router.push("/dashboard/business/campaigns");
   }
 
   return (

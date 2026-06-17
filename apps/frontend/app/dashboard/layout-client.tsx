@@ -10,9 +10,11 @@ export default function DashboardLayoutClient({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isCreator = pathname?.startsWith("/dashboard/creator");
+  const hasDedicatedLayout =
+    pathname?.startsWith("/dashboard/creator") ||
+    pathname?.startsWith("/dashboard/business");
 
-  if (isCreator) {
+  if (hasDedicatedLayout) {
     return <>{children}</>;
   }
 

@@ -29,7 +29,8 @@
   --font-geist: var(--font-geist-sans);
 }
 
-.creator-dashboard-theme {
+.creator-dashboard-theme,
+.business-dashboard-theme {
   --dash-bg: #121212;
   --dash-surface: #1a1a1a;
   --dash-border: #262626;
