@@ -1,32 +1,50 @@
+import {
+  analyticsStats,
+  spendEngagementSeries,
+  platformShares,
+  topCampaigns,
+  regionRows,
+} from "@/components/dashboard/business/analytics-data";
+import { AnalyticsHeader } from "@/components/dashboard/business/analytics-header";
 import { DashboardHeader } from "@/components/dashboard/business/dashboard-header";
+import { AnalyticsStatCard } from "@/components/dashboard/business/analytics-stat-card";
+import { EngagementSpendChart } from "@/components/dashboard/business/engagement-spend-chart";
+import { PlatformSplitCard } from "@/components/dashboard/business/platform-split-card";
+import { TopCampaignsTable } from "@/components/dashboard/business/top-campaigns-table";
+import { RegionalReachCard } from "@/components/dashboard/business/regional-reach-card";
 
-/**
- * Placeholder route. Full implementation tracked in
- * https://github.com/Ads-Bazaar/ads-bazaar/issues/21 — see that issue for the
- * file structure, components, design tokens, and acceptance criteria before
- * building this page out.
- */
 export default function BusinessAnalyticsPage() {
   return (
-    <>
+    <div className="flex flex-col gap-6">
       <DashboardHeader eyebrow="Performance insights" title="Analytics & ROI" />
+      <AnalyticsHeader />
 
-      <div className="flex flex-col items-center justify-center gap-2 border border-[var(--dash-border)] bg-[var(--dash-surface)] px-6 py-20 text-center">
-        <p className="text-sm font-medium text-[var(--dash-heading)]">
-          This page is under construction.
-        </p>
-        <p className="max-w-md text-sm text-[var(--dash-muted)]">
-          Full implementation is tracked in{" "}
-          <a
-            href="https://github.com/Ads-Bazaar/ads-bazaar/issues/21"
-            className="text-[var(--dash-accent)] hover:underline"
-          >
-            Issue #21
-          </a>
-          . Replace this file according to that spec — do not add a sidebar or
-          layout wrapper, the business dashboard shell already provides it.
-        </p>
+      {/* Stat cards row */}
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {analyticsStats.map((stat) => (
+          <AnalyticsStatCard key={stat.id} stat={stat} />
+        ))}
       </div>
-    </>
+
+      {/* Charts row */}
+      <div className="grid grid-cols-12 gap-6">
+        <div className="col-span-12 lg:col-span-8">
+          <EngagementSpendChart series={spendEngagementSeries} />
+        </div>
+        <div className="col-span-12 lg:col-span-4">
+          <PlatformSplitCard platforms={platformShares} />
+        </div>
+      </div>
+
+      {/* Bottom row */}
+      <div className="grid grid-cols-12 gap-6">
+        <div className="col-span-12 lg:col-span-7">
+          <TopCampaignsTable campaigns={topCampaigns} />
+        </div>
+        <div className="col-span-12 lg:col-span-5">
+          <RegionalReachCard regions={regionRows} />
+        </div>
+      </div>
+    </div>
   );
 }
