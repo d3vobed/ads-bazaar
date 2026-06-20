@@ -27,7 +27,7 @@ export function Navbar() {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <a href="#" className="font-sora font-bold text-xl text-on-surface">
+          <a href="/" className="font-sora font-bold text-xl text-on-surface">
             AdsBazaar
           </a>
         </div>

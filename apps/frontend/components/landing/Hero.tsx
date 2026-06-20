@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useWallet } from "@/components/wallet/wallet-context";
+import { useOnboardingModal } from "@/components/onboarding/onboarding-modal-context";
 
 export function Hero() {
-  const router = useRouter();
   const { wallet, connect, isConnecting, error } = useWallet();
+  const { openOnboarding } = useOnboardingModal();
   const [pendingIntent, setPendingIntent] = useState<"business" | "creator" | null>(null);
 
   const handleStart = (intent: "business" | "creator") => {
     if (wallet) {
-      router.push(`/onboarding/role?intent=${intent}`);
+      openOnboarding(intent);
       return;
     }
     setPendingIntent(intent);
@@ -22,7 +22,7 @@ export function Hero() {
     if (result && pendingIntent) {
       const intent = pendingIntent;
       setPendingIntent(null);
-      router.push(`/onboarding/role?intent=${intent}`);
+      openOnboarding(intent);
     }
   };
 
@@ -45,15 +45,17 @@ export function Hero() {
               </p>
               <div className="flex gap-3">
                 <button
+                  type="button"
                   onClick={handleConnect}
                   disabled={isConnecting}
-                  className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] inline-flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer disabled:opacity-60"
+                  className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] inline-flex items-center justify-center hover:opacity-90 transition-opacity disabled:opacity-60"
                 >
                   {isConnecting ? "Connecting..." : "Connect wallet"}
                 </button>
                 <button
+                  type="button"
                   onClick={() => setPendingIntent(null)}
-                  className="bg-transparent border border-on-surface text-on-surface font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] inline-flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer"
+                  className="bg-transparent border border-on-surface text-on-surface font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] inline-flex items-center justify-center hover:bg-surface-container transition-colors"
                 >
                   Cancel
                 </button>
@@ -67,14 +69,16 @@ export function Hero() {
           ) : (
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <button
+                type="button"
                 onClick={() => handleStart("business")}
-                className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] w-full sm:w-auto inline-flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer"
+                className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] w-full sm:w-auto inline-flex items-center justify-center hover:opacity-90 transition-opacity"
               >
                 Start a campaign
               </button>
               <button
+                type="button"
                 onClick={() => handleStart("creator")}
-                className="bg-transparent border border-on-surface text-on-surface font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] w-full sm:w-auto inline-flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer"
+                className="bg-transparent border border-on-surface text-on-surface font-geist font-semibold text-[16px] h-[48px] px-8 rounded-[4px] w-full sm:w-auto inline-flex items-center justify-center hover:bg-surface-container transition-colors"
               >
                 Find campaigns
               </button>

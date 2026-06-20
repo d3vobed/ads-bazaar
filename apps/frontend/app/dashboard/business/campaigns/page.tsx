@@ -1,5 +1,11 @@
 import { DashboardHeader } from "@/components/dashboard/business/dashboard-header";
 
+/**
+ * Placeholder route. Full implementation tracked in
+ * https://github.com/Ads-Bazaar/ads-bazaar/issues/49 — see that issue for the
+ * file structure, components, design tokens, and acceptance criteria before
+ * building this page out.
+ */
 export default function BusinessCampaignsPage() {
   return (
     <>
@@ -10,14 +16,15 @@ export default function BusinessCampaignsPage() {
           This page is under construction.
         </p>
         <p className="max-w-md text-sm text-[var(--dash-muted)]">
-          Full implementation coming soon. Use{" "}
+          Full implementation is tracked in{" "}
           <a
-            href="/dashboard/campaigns/new"
+            href="https://github.com/Ads-Bazaar/ads-bazaar/issues/49"
             className="text-[var(--dash-accent)] hover:underline"
           >
-            New Campaign
-          </a>{" "}
-          to create a brief.
+            Issue #49
+          </a>
+          . Replace this file according to that spec — do not add a sidebar or
+          layout wrapper, the business dashboard shell already provides it.
         </p>
       </div>
     </>

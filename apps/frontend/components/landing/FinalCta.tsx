@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useWallet } from "@/components/wallet/wallet-context";
+import { useOnboardingModal } from "@/components/onboarding/onboarding-modal-context";
 
 export function FinalCta() {
-  const router = useRouter();
   const { wallet, connect, isConnecting, error } = useWallet();
+  const { openOnboarding } = useOnboardingModal();
   const [needsWallet, setNeedsWallet] = useState(false);
 
   const handleLaunch = () => {
     if (wallet) {
-      router.push("/onboarding/role?intent=business");
+      openOnboarding("business");
       return;
     }
     setNeedsWallet(true);
@@ -21,7 +21,7 @@ export function FinalCta() {
     const result = await connect();
     if (result) {
       setNeedsWallet(false);
-      router.push("/onboarding/role?intent=business");
+      openOnboarding("business");
     }
   };
 
@@ -41,15 +41,17 @@ export function FinalCta() {
             </p>
             <div className="flex gap-3">
               <button
+                type="button"
                 onClick={handleConnect}
                 disabled={isConnecting}
-                className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[56px] px-10 rounded-[4px] inline-flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer disabled:opacity-60"
+                className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[56px] px-10 rounded-[4px] inline-flex items-center justify-center hover:opacity-90 transition-opacity disabled:opacity-60"
               >
                 {isConnecting ? "Connecting..." : "Connect wallet"}
               </button>
               <button
+                type="button"
                 onClick={() => setNeedsWallet(false)}
-                className="bg-transparent border border-on-surface text-on-surface font-geist font-semibold text-[16px] h-[56px] px-10 rounded-[4px] inline-flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer"
+                className="bg-transparent border border-on-surface text-on-surface font-geist font-semibold text-[16px] h-[56px] px-10 rounded-[4px] inline-flex items-center justify-center hover:bg-surface-container transition-colors"
               >
                 Cancel
               </button>
@@ -60,8 +62,9 @@ export function FinalCta() {
           </div>
         ) : (
           <button
+            type="button"
             onClick={handleLaunch}
-            className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[56px] px-10 rounded-[4px] inline-flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer"
+            className="bg-primary-container text-on-primary font-geist font-semibold text-[16px] h-[56px] px-10 rounded-[4px] inline-flex items-center justify-center hover:opacity-90 transition-opacity"
           >
             Launch a Campaign
           </button>

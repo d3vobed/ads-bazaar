@@ -11,8 +11,8 @@ export function TransactionHistoryTable({ transactions }: TransactionHistoryTabl
       <h2 className="font-[family-name:var(--font-sora)] text-xl font-semibold text-[var(--dash-heading)] mb-4">
         Transaction History
       </h2>
-      <div className="border border-[var(--dash-border)] bg-[var(--dash-surface)]">
-        <table className="w-full border-collapse text-left">
+      <div className="overflow-x-auto border border-[var(--dash-border)] bg-[var(--dash-surface)]">
+        <table className="w-full min-w-[640px] border-collapse text-left">
           <thead className="border-b border-[var(--dash-border)]">
             <tr>
               <th className="px-4 py-3 text-xs font-semibold text-[var(--dash-muted)]">Date</th>

@@ -1,3 +1,4 @@
+import { DashboardHeader } from '@/components/dashboard/business/dashboard-header';
 import { PayoutsHeader } from '@/components/dashboard/business/payouts-header';
 import { EscrowStatCard } from '@/components/dashboard/business/escrow-stat-card';
 import { WalletAssetsPanel } from '@/components/dashboard/business/wallet-assets-panel';
@@ -14,6 +15,7 @@ import {
 export default function BusinessPayoutsPage() {
   return (
     <div className="flex flex-col gap-8">
+      <DashboardHeader eyebrow="Escrow & settlements" title="Payouts & Escrow" />
       <PayoutsHeader />
 
       {/* Escrow stat cards */}

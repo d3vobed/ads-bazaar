@@ -65,7 +65,7 @@ export function CampaignsTable({
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-left">
+          <table className="w-full min-w-[500px] border-collapse text-left">
             <thead className="border-b border-[var(--dash-border)]">
               <tr>
                 <th className="pb-4 text-xs font-semibold uppercase tracking-[0.05em] text-[var(--dash-muted)]">

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Sora } from "next/font/google";
 import { WalletProvider } from "@/components/wallet/wallet-provider";
+import { OnboardingModalProvider } from "@/components/onboarding/onboarding-modal-context";
+import { OnboardingWizardModal } from "@/components/onboarding/onboarding-wizard-modal";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,7 +40,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}
       >
-        <WalletProvider>{children}</WalletProvider>
+        <WalletProvider>
+          <OnboardingModalProvider>
+            {children}
+            <OnboardingWizardModal />
+          </OnboardingModalProvider>
+        </WalletProvider>
       </body>
     </html>
   );
