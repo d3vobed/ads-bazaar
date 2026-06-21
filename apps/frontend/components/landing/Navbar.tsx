@@ -37,7 +37,7 @@ export function Navbar() {
           <a href="/marketplace" className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors">
             Marketplace
           </a>
-          <a href="#" className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors">
+          <a href="/explore" className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors">
             Explore
           </a>
           <a href="#" className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors">
@@ -69,7 +69,7 @@ export function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-surface-container border-b border-outline-variant px-6 py-4 flex flex-col gap-4">
           <a href="/marketplace" className="text-[15px] text-on-surface py-2 font-medium">Marketplace</a>
-          <a href="#" className="text-[15px] text-on-surface-variant py-2">Explore</a>
+          <a href="/explore" className="text-[15px] text-on-surface-variant py-2">Explore</a>
           <a href="#" className="text-[15px] text-on-surface-variant py-2">Stats</a>
           <ConnectWalletButton />
         </div>
