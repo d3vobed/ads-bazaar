@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 
 type StatCardProps = {
   align?: "center" | "start";
+  children?: ReactNode;
   className?: string;
   delta?: string;
   icon?: LucideIcon;
@@ -12,6 +14,7 @@ type StatCardProps = {
 
 export function StatCard({
   align = "start",
+  children,
   className = "",
   delta,
   icon: Icon,
@@ -56,6 +59,8 @@ export function StatCard({
       {delta ? (
         <p className="mt-1 text-sm text-[var(--dash-muted)]">{delta}</p>
       ) : null}
+
+      {children}
     </article>
   );
 }
