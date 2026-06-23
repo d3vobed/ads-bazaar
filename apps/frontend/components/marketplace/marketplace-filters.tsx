@@ -3,7 +3,13 @@
 import { Search, ChevronDown } from "lucide-react";
 import { quickTags } from "./marketplace-data";
 
-export function MarketplaceFilters() {
+export function MarketplaceFilters({
+  searchValue,
+  onSearchChange,
+}: {
+  searchValue: string;
+  onSearchChange: (value: string) => void;
+}) {
   return (
     <div className="border border-outline-variant bg-surface-container p-6 mt-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -17,8 +23,8 @@ export function MarketplaceFilters() {
             <input
               type="text"
               placeholder="Brand name or niche..."
-              disabled
-              title="Coming soon"
+              value={searchValue}
+              onChange={(e) => onSearchChange(e.target.value)}
               className="bg-surface-container-high border border-outline-variant px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/50 w-full pl-10"
             />
           </div>
