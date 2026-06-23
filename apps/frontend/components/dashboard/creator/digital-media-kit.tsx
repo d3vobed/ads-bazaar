@@ -35,7 +35,9 @@ export function DigitalMediaKit({ mediaKit }: { mediaKit: MediaKit }) {
         </h2>
         <button
           type="button"
-          className="text-xs font-bold text-[var(--dash-accent)] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--dash-accent)]"
+          disabled
+          title="Coming soon"
+          className="text-xs font-bold text-[var(--dash-accent)] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--dash-accent)] disabled:cursor-not-allowed disabled:opacity-60"
         >
           Edit Info
         </button>

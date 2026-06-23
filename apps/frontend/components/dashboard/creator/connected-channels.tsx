@@ -47,10 +47,12 @@ function ChannelCard({ channel }: { channel: ConnectedChannel }) {
 
       <button
         type="button"
+        disabled
+        title="Coming soon"
         className={
           isActive
-            ? "mt-auto w-full border border-[var(--dash-border)] py-2 text-sm font-bold text-[var(--dash-heading)] transition-colors hover:bg-[var(--dash-border)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--dash-accent)]"
-            : "mt-auto w-full bg-[var(--dash-accent-strong)] py-2 text-sm font-bold text-[var(--dash-on-accent-strong)] transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--dash-accent)]"
+            ? "mt-auto w-full border border-[var(--dash-border)] py-2 text-sm font-bold text-[var(--dash-heading)] transition-colors hover:bg-[var(--dash-border)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--dash-accent)] disabled:cursor-not-allowed disabled:opacity-60"
+            : "mt-auto w-full bg-[var(--dash-accent-strong)] py-2 text-sm font-bold text-[var(--dash-on-accent-strong)] transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--dash-accent)] disabled:cursor-not-allowed disabled:opacity-60"
         }
       >
         {isActive ? "Manage Account" : "Reconnect Token"}
@@ -85,6 +87,7 @@ export function ConnectedChannels({
         <button
           type="button"
           disabled
+          title="Coming soon"
           className="flex min-h-[160px] flex-col items-center justify-center gap-2 bg-black border border-dashed border-gray-600 p-4 text-center disabled:cursor-not-allowed disabled:opacity-60"
         >
           <div className="flex flex-col items-center justify-center gap-2 border border-dashed border-gray-600">
