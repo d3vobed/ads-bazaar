@@ -13,6 +13,7 @@ import { CampaignRequirements } from "@/components/marketplace/campaign-requirem
 import { EscrowSidebar } from "@/components/marketplace/escrow-sidebar";
 import { ApplicationForm } from "@/components/marketplace/application-form";
 import { CampaignHelpCard } from "@/components/marketplace/campaign-help-card";
+import { Breadcrumb } from "@/components/marketplace/breadcrumb";
 
 export default function CampaignDetailPage({
   params,
@@ -25,7 +26,14 @@ export default function CampaignDetailPage({
     <>
       <Navbar />
       <main className="max-w-[1280px] mx-auto px-6 lg:px-10 pt-28 pb-20">
-        <div className="grid grid-cols-12 gap-8">
+        <Breadcrumb
+          items={[
+            { label: "Marketplace", href: "/marketplace" },
+            { label: campaign.category, href: `/marketplace?category=${encodeURIComponent(campaign.category)}` },
+            { label: campaign.title },
+          ]}
+        />
+        <div className="grid grid-cols-12 gap-8 mt-6">
           <div className="col-span-12 lg:col-span-7 flex flex-col gap-8">
             <CampaignDetailHeader campaign={campaign} />
             <CampaignHeroImage campaign={campaign} />

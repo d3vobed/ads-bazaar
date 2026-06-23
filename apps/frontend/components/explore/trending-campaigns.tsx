@@ -1,9 +1,13 @@
 "use client";
 
-import { trendingCampaigns } from "./explore-data";
 import { TrendingCampaignCard } from "./trending-campaign-card";
+import type { TrendingCampaignItem } from "./explore-data";
 
-export function TrendingCampaigns() {
+type TrendingCampaignsProps = {
+  campaigns: TrendingCampaignItem[];
+};
+
+export function TrendingCampaigns({ campaigns }: TrendingCampaignsProps) {
   return (
     <section>
       <div className="flex items-end justify-between mt-16 mb-6">
@@ -23,13 +27,19 @@ export function TrendingCampaigns() {
         </a>
       </div>
 
-      <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {trendingCampaigns.map((campaign) => (
-          <div key={campaign.id} className="snap-start shrink-0 w-[300px]">
-            <TrendingCampaignCard campaign={campaign} />
-          </div>
-        ))}
-      </div>
+      {campaigns.length > 0 ? (
+        <div className="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {campaigns.map((campaign) => (
+            <div key={campaign.id} className="snap-start shrink-0 w-[300px]">
+              <TrendingCampaignCard campaign={campaign} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-on-surface-variant text-sm text-center py-12">
+          No items found for this tag.
+        </p>
+      )}
     </section>
   );
 }

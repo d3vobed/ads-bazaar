@@ -40,7 +40,11 @@ export function TopPerformingTable({ campaigns }: { campaigns: TopCampaign[] }) 
               >
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-3">
-                    <div className="size-10 shrink-0 bg-[var(--dash-bg)]" />
+                    <img
+                      src={campaign.thumbnailPath}
+                      alt={campaign.title}
+                      className="size-10 shrink-0 object-cover"
+                    />
                     <div>
                       <p className="text-sm font-semibold text-[var(--dash-heading)]">
                         {campaign.title}

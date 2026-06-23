@@ -32,7 +32,9 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="rounded-2xl border border-[rgba(255,255,255,0.1)] bg-white p-6 text-[#131313]">
-        <h2 className="text-xl font-bold text-[#131313]">Budget &amp; Payout</h2>
+        <h2 className="text-xl font-bold text-[#131313]">
+          Budget &amp; Payout
+        </h2>
 
         <div className="mt-6 flex flex-col gap-5">
           {/* Asset Selector */}
@@ -40,8 +42,14 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
             <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-[#66706c]">
               Payment Asset <span className="text-red-500">*</span>
             </label>
-            <AssetSelector assets={ASSETS} selected={data.asset} onChange={(asset) => update({ asset })} />
-            {errors.asset && <p className="mt-1 text-xs text-red-500">{errors.asset}</p>}
+            <AssetSelector
+              assets={ASSETS}
+              selected={data.asset}
+              onChange={(asset) => update({ asset })}
+            />
+            {errors.asset && (
+              <p className="mt-1 text-xs text-red-500">{errors.asset}</p>
+            )}
           </div>
 
           {/* Budget + Slots */}
@@ -55,7 +63,9 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
                   type="number"
                   min={0}
                   value={data.totalBudget || ""}
-                  onChange={(e) => update({ totalBudget: Number(e.target.value) })}
+                  onChange={(e) =>
+                    update({ totalBudget: Number(e.target.value) })
+                  }
                   placeholder="5000"
                   className="w-full rounded-lg border border-[rgba(0,0,0,0.12)] bg-[#f4f4f4] py-2.5 pl-3 pr-16 text-sm text-[#131313] outline-none focus:border-[#131313]"
                 />
@@ -63,7 +73,11 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
                   {data.asset}
                 </span>
               </div>
-              {errors.totalBudget && <p className="mt-1 text-xs text-red-500">{errors.totalBudget}</p>}
+              {errors.totalBudget && (
+                <p className="mt-1 text-xs text-red-500">
+                  {errors.totalBudget}
+                </p>
+              )}
             </div>
 
             <div>
@@ -75,11 +89,22 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
                 min={1}
                 step={1}
                 value={data.creatorSlots || ""}
-                onChange={(e) => update({ creatorSlots: Math.max(1, Math.floor(Number(e.target.value))) })}
+                onChange={(e) =>
+                  update({
+                    creatorSlots: Math.max(
+                      1,
+                      Math.floor(Number(e.target.value)),
+                    ),
+                  })
+                }
                 placeholder="10"
                 className="w-full rounded-lg border border-[rgba(0,0,0,0.12)] bg-[#f4f4f4] px-3 py-2.5 text-sm text-[#131313] outline-none focus:border-[#131313]"
               />
-              {errors.creatorSlots && <p className="mt-1 text-xs text-red-500">{errors.creatorSlots}</p>}
+              {errors.creatorSlots && (
+                <p className="mt-1 text-xs text-red-500">
+                  {errors.creatorSlots}
+                </p>
+              )}
             </div>
           </div>
 
@@ -91,7 +116,9 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
               </p>
               <p className="mt-1 text-[32px] font-black leading-none text-[#131313]">
                 {payoutPerCreator}{" "}
-                <span className="text-lg font-semibold text-[#66706c]">{data.asset}</span>
+                <span className="text-lg font-semibold text-[#66706c]">
+                  {data.asset}
+                </span>
               </p>
             </div>
             <Calculator size={20} className="text-[#a0a0a0]" />
@@ -114,8 +141,16 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
                 {data.totalBudget.toLocaleString()} {data.asset}
               </strong>{" "}
               will be locked in a secure{" "}
-              <a href="#" className="underline">Soroban smart contract</a>.
-              Funds are only released to creators upon successful validation of campaign milestones.
+              <a
+                href="https://soroban.stellar.org/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors"
+              >
+                Soroban smart contract
+              </a>.
+              Funds are only released to creators upon successful validation of
+              campaign milestones.
             </p>
           </div>
         </div>
@@ -131,7 +166,8 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
             </span>
           </div>
           <p className="text-[12px] leading-relaxed text-[rgba(255,255,255,0.45)]">
-            You can top up the escrow at any time to add more creator slots after the campaign starts.
+            You can top up the escrow at any time to add more creator slots
+            after the campaign starts.
           </p>
         </div>
         <div className="rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.04)] p-4">
@@ -142,7 +178,8 @@ export function StepBudget({ data, onChange, errors }: StepBudgetProps) {
             </span>
           </div>
           <p className="text-[12px] leading-relaxed text-[rgba(255,255,255,0.45)]">
-            AdsBazaar supports Stellar native assets and anchored tokens for instant cross-border payouts.
+            AdsBazaar supports Stellar native assets and anchored tokens for
+            instant cross-border payouts.
           </p>
         </div>
       </div>

@@ -34,20 +34,32 @@ export function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="/marketplace" className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors">
+          <a
+            href="/marketplace"
+            className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors"
+          >
             Marketplace
           </a>
-          <a href="/explore" className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors">
+          <a
+            href="/explore"
+            className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors"
+          >
             Explore
           </a>
-          <a href="#" className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors">
+          <a
+            href="/stats"
+            className="text-[15px] text-on-surface-variant hover:text-on-surface transition-colors"
+          >
             Stats
           </a>
         </div>
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-6">
-          <button aria-label="Notifications" className="text-on-surface-variant hover:text-on-surface transition-colors">
+          <button
+            aria-label="Notifications"
+            className="text-on-surface-variant hover:text-on-surface transition-colors"
+          >
             <Bell className="w-5 h-5" />
           </button>
           <ConnectWalletButton />
@@ -60,7 +72,11 @@ export function Navbar() {
             aria-label="Toggle menu"
             className="text-on-surface-variant"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -68,9 +84,21 @@ export function Navbar() {
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-surface-container border-b border-outline-variant px-6 py-4 flex flex-col gap-4">
-          <a href="/marketplace" className="text-[15px] text-on-surface py-2 font-medium">Marketplace</a>
-          <a href="/explore" className="text-[15px] text-on-surface-variant py-2">Explore</a>
-          <a href="#" className="text-[15px] text-on-surface-variant py-2">Stats</a>
+          <a
+            href="/marketplace"
+            className="text-[15px] text-on-surface py-2 font-medium"
+          >
+            Marketplace
+          </a>
+          <a
+            href="/explore"
+            className="text-[15px] text-on-surface-variant py-2"
+          >
+            Explore
+          </a>
+          <a href="/stats" className="text-[15px] text-on-surface-variant py-2">
+            Stats
+          </a>
           <ConnectWalletButton />
         </div>
       )}

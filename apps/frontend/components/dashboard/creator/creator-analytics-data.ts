@@ -78,7 +78,7 @@ export const channels: ChannelCard[] = [
 ];
 
 export const topCampaigns: TopCampaign[] = [
-  { id: "stellar-wallet", title: "Stellar Wallet: Future of FinTech", date: "May 14, 2024", thumbnailPath: "/images/thumb-stellar.jpg", platform: "Instagram Reels", totalReach: "452,000", engagement: "8.4%", roi: "4.2x" },
-  { id: "luxefit", title: "LuxeFit: Summer 24 Drop", date: "May 08, 2024", thumbnailPath: "/images/thumb-luxefit.jpg", platform: "TikTok", totalReach: "892,400", engagement: "12.1%", roi: "6.8x" },
-  { id: "saas-flow", title: "SaaS Flow: Productivity Hack", date: "May 02, 2024", thumbnailPath: "/images/thumb-saas.jpg", platform: "YouTube Short", totalReach: "125,300", engagement: "5.2%", roi: "3.1x" },
+  { id: "stellar-wallet", title: "Stellar Wallet: Future of FinTech", date: "May 14, 2024", thumbnailPath: "/images/thumbnail-placeholder.jpg", platform: "Instagram Reels", totalReach: "452,000", engagement: "8.4%", roi: "4.2x" },
+  { id: "luxefit", title: "LuxeFit: Summer 24 Drop", date: "May 08, 2024", thumbnailPath: "/images/thumbnail-placeholder.jpg", platform: "TikTok", totalReach: "892,400", engagement: "12.1%", roi: "6.8x" },
+  { id: "saas-flow", title: "SaaS Flow: Productivity Hack", date: "May 02, 2024", thumbnailPath: "/images/thumbnail-placeholder.jpg", platform: "YouTube Short", totalReach: "125,300", engagement: "5.2%", roi: "3.1x" },
 ];

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import type { MarketplaceCampaign } from "./marketplace-data";
+import { marketplaceCampaigns } from "./marketplace-data";
+import { MarketplaceCampaignCard } from "./marketplace-campaign-card";
 
 export function MarketplaceGrid({
   campaigns,

@@ -1,11 +1,19 @@
 export type TrendingCampaignTag = "hot" | "featured";
 
+export type CampaignCategory =
+  | "stellar"
+  | "gaming"
+  | "fintech"
+  | "creator"
+  | "defi";
+
 export type TrendingCampaignItem = {
   id: string;
   title: string;
   description: string;
   budget: string;
   tag: TrendingCampaignTag | null;
+  category: CampaignCategory;
   iconBg: string; // Tailwind bg class for the icon box
 };
 
@@ -34,6 +42,14 @@ export const hashtagPills = [
   "#DeFiSocial",
 ];
 
+export const hashtagCategoryMap: Record<string, CampaignCategory> = {
+  "#StellarSummer": "stellar",
+  "#Web3Gaming": "gaming",
+  "#FintechReach": "fintech",
+  "#CreatorEconomy": "creator",
+  "#DeFiSocial": "defi",
+};
+
 export const trendingCampaigns: TrendingCampaignItem[] = [
   {
     id: "nebula-wallet",
@@ -42,6 +58,7 @@ export const trendingCampaigns: TrendingCampaignItem[] = [
       "Promote the first decentralized yield aggregator on Stellar with native Soroban integration.",
     budget: "12.5k XLM",
     tag: "hot",
+    category: "fintech",
     iconBg: "bg-blue-900/40",
   },
   {
@@ -51,6 +68,7 @@ export const trendingCampaigns: TrendingCampaignItem[] = [
       "Top-tier gaming creators needed for the largest RPG tournament on the Stellar network.",
     budget: "50.0k XLM",
     tag: "featured",
+    category: "gaming",
     iconBg: "bg-red-900/40",
   },
   {
@@ -60,6 +78,7 @@ export const trendingCampaigns: TrendingCampaignItem[] = [
       "Educational series about Stellar energy consumption and sustainable validation.",
     budget: "8.2k XLM",
     tag: null,
+    category: "creator",
     iconBg: "bg-green-900/40",
   },
 ];
@@ -102,7 +121,7 @@ export const topCreators: CreatorCard[] = [
     specialty: "Fintech & Macro",
     reach: "1.2M",
     rating: "4.8",
-    avatarPath: "/images/creator-alex.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
   {
     id: "sarah",
@@ -110,7 +129,7 @@ export const topCreators: CreatorCard[] = [
     specialty: "Web3 Gaming",
     reach: "850K",
     rating: "4.9",
-    avatarPath: "/images/creator-sarah.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
   {
     id: "marcus",
@@ -118,7 +137,7 @@ export const topCreators: CreatorCard[] = [
     specialty: "Developer Advocacy",
     reach: "420K",
     rating: "5.0",
-    avatarPath: "/images/creator-marcus.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
   {
     id: "elena",
@@ -126,6 +145,6 @@ export const topCreators: CreatorCard[] = [
     specialty: "Brand Strategy",
     reach: "2.1M",
     rating: "4.7",
-    avatarPath: "/images/creator-elena.jpg",
+    avatarPath: "/images/avatar-placeholder.jpg",
   },
 ];
